@@ -1,0 +1,11 @@
+mixin Navbar(black)
+    .navbar
+        .container
+            if (black == true)
+                img.logo(src="/assets/images/logo-white.png")
+            else
+                img.logo(src="/assets/images/logo.png")
+            .menu-wrapper
+                each item in ['О компании', 'Успешные инвесторы', 'Часто задаваемые вопросы (FAQ)', 'Контакты']
+                    a(href="#")= item
+            a.btn(href="") Регистрация

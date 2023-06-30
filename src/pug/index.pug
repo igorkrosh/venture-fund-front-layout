@@ -1,4 +1,13 @@
 include core/mixins
+include core/navbar
+
+mixin Project(image, title, subtitle, text)
+    .project
+        img(src=image)
+        .desc
+            .project-title= title
+            .project-subtitle= subtitle
+            .text= text
 
 doctype html
 html(lang="ru")
@@ -9,11 +18,175 @@ html(lang="ru")
         title Document
         include core/head
     body
-        .container
-            h1 Hi from PUG! 
-            +InputRadio('name', 'test')
-            
-            +Modal('test', 'ModalTemplate')
-            a(rel="modal:open" href="#test") Modal Test
+        .scrolleffect
+            .scroll-content
+                section.screen.main
+                    header
+                        +Navbar()
+                    .container.container-text
+                        .first-text
+                            h1 Получайте <b>доход</b> до <b>50% уже сейчас!</b>
+                            p Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.
+                            a.btn(href="#") Регистрация
+                        .second-text
+                            p Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.
+                        img.scroll(src="/assets/images/scroll.png")
+                    #av-bg
+                section.screen
+                .content-body
+                    +Navbar(true)
+                    .about-us
+                        .container
+                            .col.big-text
+                                h2 All Venture
+                                p Мы не ограничиваемся предоставлением финансирования и выступаем в качестве сильного и профессионального партнёра. Наш опыт, репутация, деловые связи – это то, что поможет бизнесу венчурного проекта выдержать серьёзную конкуренцию современной сферы инноваций.
+                            .col.text
+                                p Мы считаем, что наши обширные знания могут создать дополнительную ценность в следующих сегментах рынка технологий: корпоративное программное обеспечение, финансовые технологии, медицинские технологии, искусственный интеллект, автоматизация, потребительские мобильные приложения и торговые площадки .
+                                p Наше уникальное глобальное положение позволяет нам поддерживать американские, израильские и европейские предприятия по обе стороны океана по мере их выхода на рынки США и других стран.
+                                p Эта стратегия «Мост», а также наша широкая сеть предпринимателей, отраслевых экспертов и инвестиционных фондов дает нашим предпринимателям уникальный доступ к высококачественным талантам, капиталу и возможностям для бизнеса.
+                    .marquee3k(data-speed="0.25" data-pausable="false")
+                        .marquee
+                            .item-wrapper
+                                .item
+                                    .number-wrapper
+
+                                        span.number 10
+                                            .sup.l >
+                                            .sup.r тыс. <br> проектов
+                                    span.item-title ПРИНЯЛИ УЧАСТИЕ В <br> ПРОГРАММАХ ФОНДА
+                                .item
+                                    .number-wrapper
+                                        span.number 6
+                                            .sup.r млрд <br> руб.
+                                    span.item-title ОБЪЁМ ФОНДА
+                                .item
+                                    .number-wrapper
+                                        span.number 400
+                                    span.item-title ПРОИНВЕСТИРОВАННЫХ <br> КОМПАНИЙ
+                                .item
+                                    .number-wrapper
+
+                                        span.number 324
+                                            .sup.l до
+                                            .sup.r млн <br> руб.
+                                    span.item-title РАЗМЕР ИНВЕСТИЦИЙ
+                    .our-projects
+                        .container
+                            h2.title Наши проекты
+                        .projects-wrapper
+                            .col.left
+                                +Project('/assets/images/projects/1.jpg', 'Название проекта', '', '')
+                                +Project('/assets/images/projects/3.jpg', 'Название проекта', '', '')
+
+                            .col.right
+                                +Project('/assets/images/projects/2.jpg', 'Название проекта', 'Доходность: 40% \\ 7 мес. Минимальный депозит: 60 000 р.', 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. ')
+                                +Project('/assets/images/projects/4.jpg', 'Название проекта', '', '')
+                    .reviews
+                        .container
+                            h2.title Инвесторы делятся успехом
+                            .btn-wrapper
+                                .wrapper
+                                    button.btn-tab-switch.active(target="tab-1") Проект 1
+                                    button.btn-tab-switch(target="tab-2") Проект 2
+                                    button.btn-tab-switch(target="tab-3") Проект 3
+                                    button.btn-tab-switch(target="tab-4") Проект 4
+                            .tab-viewer
+                                .tab.active(tab-name="tab-1")
+                                    .desc
+                                        h3 Проект 1
+                                        h4 Доходность: 40% \ 7 мес. Минимальный депозит: 60 000 р.
+                                        p Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.
+                                    .carousel-wrapper
+                                        .owl-navs
+                                            .navs
+                                            .dots
+                                        .people-carousel.owl-carousel
+                                            .item
+                                                img.image(src="/assets/images/slide.jpg")
+                                                .text
+                                                    b Иванов Иван Иванович
+                                                    p Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
+                                                    button.btn Принять участие в проекте
+                                            .item
+                                                img.image(src="/assets/images/slide.jpg")
+                                                .text
+                                                    b Иванов Иван Иванович 2
+                                                    p Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
+                                                    button.btn Принять участие в проекте
+                                            .item
+                                                img.image(src="/assets/images/slide.jpg")
+                                                .text
+                                                    b Иванов Иван Иванович 3
+                                                    p Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
+                                                    button.btn Принять участие в проекте
+                                            .item
+                                                img.image(src="/assets/images/slide.jpg")
+                                                .text
+                                                    b Иванов Иван Иванович 4
+                                                    p Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
+                                                    button.btn Принять участие в проекте
+                                    //.video-grid
+                                        iframe(width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen)
+                                        iframe(width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen)
+                                        iframe(width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen)
+                                .tab(tab-name="tab-2")
+                                    h2 Проект 2
+                                .tab(tab-name="tab-3")
+                                    h2 Проект 3
+                                .tab(tab-name="tab-4")
+                                    h2 Проект 4
+                    .faq
+                        .container
+                            h2.title Нас часто спрашивают
+                            .faq-wrapper
+                                .av
+                                    #av-mini
+                                .dropdown-wrapper
+                                    .dropdown
+                                        .d-header Вопрос №1
+                                        .d-content
+                                            .wrapper
+                                                p Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.
+                                    .dropdown
+                                        .d-header Вопрос №2
+                                        .d-content
+                                            .wrapper
+                                                p Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.
+                                    .dropdown
+                                        .d-header Вопрос №3
+                                        .d-content
+                                            .wrapper
+                                                p Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.
+                                    .dropdown
+                                        .d-header Вопрос №4
+                                        .d-content
+                                            .wrapper
+                                                p Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.
+                                    .dropdown
+                                        .d-header Вопрос №5
+                                        .d-content
+                                            .wrapper
+                                                p Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века.
+                    footer
+                        .container
+                            .wrapper
+                                img.logo(src="/assets/images/logo-white.png")
+                                a(href="#").btn Регистрация
+                            .wrapper
+                                span
+                                    |ООО НАЗВАНИЕ КОМПАНИИ, ОГРН 1234567898 <br>
+                                    |183039, Нижний Новгород, д.1, помещ.1 <br>
+                                    |info@mail.ru
+                                img.payments(src="/assets/images/icons/payments.png")
+                            .wrapper
+                                a(href="").link Политика конфиденциальности
+                                span
+                                    |Copyrigth 2023 - все права защищены. <br>
+                                    |Копирование информации без указания <br>
+                                    |источника преследуется законом
+
+
+
+                section.screen.fake
 
         include core/scripts

@@ -7,14 +7,14 @@ function Core()
 
 function SetTabSwitcher()
 {
-    $('.btn__tab__switch').on('click', function(e) {
+    $('.btn-tab-switch').on('click', function(e) {
         e.preventDefault();
         if ($(this).hasClass('active'))
         {
             return;
         }
 
-        $('.btn__tab__switch').removeClass('active');
+        $('.btn-tab-switch').removeClass('active');
         $(this).addClass('active');
 
         let targetTab = $(this).attr('target');

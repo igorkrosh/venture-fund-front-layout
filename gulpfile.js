@@ -9,15 +9,17 @@ let path = {
         css: `${projectFolder}/assets/css/`,
         js: `${projectFolder}/assets/js/`,
         img: `${projectFolder}/assets/images/`,
-        fonts: `${projectFolder}/assets/fonts/`
+        fonts: `${projectFolder}/assets/fonts/`,
+        models: `${projectFolder}/assets/models/`
     },
     src: {
         html: [`${sourceFolder}/*.html`, `!${sourceFolder}/_*.html`],
         pug: `${sourceFolder}/pug/*.pug`,
         css: [`${sourceFolder}/scss/style.scss`, `${sourceFolder}/scss/bundle.scss`, `${sourceFolder}/scss/response.scss`],
-        js: [`${sourceFolder}/js/index.js`],
+        js: [`${sourceFolder}/js/**/*.js`],
         img: `${sourceFolder}/images/**/*.+(png|jpg|gif|ico|svg|webp)`,
-        fonts: `${sourceFolder}/fonts/*.ttf`
+        fonts: `${sourceFolder}/fonts/*.ttf`,
+        models: `${sourceFolder}/models/*.glb`,
     },
     watch: {
         html: `${sourceFolder}/**/*.html`,
@@ -48,7 +50,7 @@ let rename = require('gulp-rename');
 let uglifyEs = require('gulp-uglify-es').default;
 let vinylBuffer = require('vinyl-buffer');
 let sass = require('gulp-sass')(require('sass'));
-
+let include = require('gulp-include')
 
 gulp.task('bundle', function() {
     return browserify(`${sourceFolder}/js/bundle.js`)
@@ -58,7 +60,7 @@ gulp.task('bundle', function() {
 });
 
 gulp.task('build', function() {
-    return gulp.series(Clean, BundleJS, gulp.parallel(JS, CSS, HTML, PUG, IMG, FONTS), FontsStyle);
+    return gulp.series(Clean, BundleJS, gulp.parallel(JS, CSS, HTML, PUG, IMG, FONTS, MODELS), FontsStyle);
 });
 
 function FontsStyle(cb)
@@ -95,6 +97,7 @@ function BundleJS(cb)
         .pipe(source('bundle.js'))
         .pipe(vinylBuffer())
         .pipe(uglifyEs())
+        .pipe(include())
         .pipe(
             rename({
                 extname: '.min.js'
@@ -191,6 +194,12 @@ function IMG()
         .pipe(browsersync.stream());
 }
 
+function MODELS()
+{
+    return src(path.src.models)
+            .pipe(dest(path.build.models))
+}
+
 function FONTS()
 {
     src(path.src.fonts)
@@ -202,7 +211,7 @@ function FONTS()
         .pipe(dest(path.build.fonts));
 }
 
-let build = gulp.series(Clean, BundleJS, gulp.parallel(JS, CSS, HTML, PUG, IMG, FONTS), FontsStyle);
+let build = gulp.series(Clean, BundleJS, gulp.parallel(JS, CSS, HTML, PUG, IMG, FONTS, MODELS), FontsStyle);
 let watch = gulp.parallel(build, WatchFiles, BrowserSync);
 
 exports.bundleJs = BundleJS;
