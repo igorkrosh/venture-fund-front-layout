@@ -14,22 +14,22 @@ let sceneMiniWrapperId = 'av-mini'
 let sceneMiniWrapperNode;
 
 let modelA = {
-    path: '/assets/models/a.glb',
+    path: '/assets/models/A.glb',
     model: {},
 }
 
 let modelV = {
-    path: '/assets/models/v.glb',
+    path: '/assets/models/V.glb',
     model: {}
 }
 
 let modelMiniA = {
-    path: '/assets/models/a.glb',
+    path: '/assets/models/A.glb',
     model: {},
 }
 
 let modelMiniV = {
-    path: '/assets/models/v.glb',
+    path: '/assets/models/V.glb',
     model: {}
 }
 
