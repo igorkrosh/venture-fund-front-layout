@@ -90,6 +90,9 @@ body
     background: url('/assets/images/bg/main-screen.jpg') no-repeat;
     background-size: cover;
     background-position: center;
+    position: fixed;
+    width: 100%;
+    pointer-events: none;
 
     .container-text
     {
@@ -127,6 +130,11 @@ body
             margin-bottom: 20px;
             font-size: 16px;
         }
+    }
+
+    .btn
+    {
+        pointer-events: all;
     }
 
     .second-text

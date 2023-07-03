@@ -278,12 +278,17 @@ function SceneHoverEffect()
 function SceneScrollEffect()
 {
     $('.scrolleffect').on('scroll', function (e) {
-        let scrollDistance = -$(this).find('.scroll-content')[0].getBoundingClientRect().top;
-        let progressPercentage = (scrollDistance/ (window.innerHeight * 2 - document.documentElement.clientHeight)) * 100;
+        //let scrollDistance = -$(this).find('.scroll-content')[0].getBoundingClientRect().top;
+        //let progressPercentage = (scrollDistance/ (window.innerHeight * 2 - document.documentElement.clientHeight)) * 100;
+
+        let scrollDistance = $('.scrolleffect')[0].scrollTop;
+        let progressPercentage = (scrollDistance/ $('.scrolleffect').height()) * 100;
+
+        console.log(progressPercentage)
 
         if (progressPercentage < 150)
         {
-            $('.screen.main').css('transform', `translateY(${progressPercentage}%)`)
+            //$('.screen.main').css('transform', `translateY(${scrollDistance}px)`)
         }
 
         progressPercentage = Math.floor(progressPercentage);
@@ -296,11 +301,11 @@ function SceneScrollEffect()
         _scene.scale.y = 1 + progressPercentage / 100;
         _scene.scale.z = 1 + progressPercentage / 100;
 
-        let scale = progressPercentage < 50 ? 0 : (progressPercentage - 50) / 100;
+        let scale = progressPercentage / 100;
 
         $('.content-body').css('transform', `scale(${scale > 1 ? 1 : scale}) rotate3d(0.05, 1, 0, ${90 - 90 * scale < 0 ? 0 : 90 - 90 * scale}deg)`);
 
-        if (scale >= 1.5)
+        if (scale >= 1)
         {
             $('.content-body').addClass('anchor');
             $('.screen.main').css('transform', ``)
@@ -324,15 +329,17 @@ function WheelEffect(e)
 
 function ProjectScrollEffect()
 {
-    $('.scrolleffect').on('scroll', function (e) {
+    $('.content-body').on('scroll', function (e) {
 
         if (window.innerWidth < 1200)
             return;
-        let scrollDistance = -$(this).find('.content-body')[0].getBoundingClientRect().top;
-        let progressPercentage = scrollDistance / ($('.projects-wrapper').position().top + $('.projects-wrapper').height() )
-
-        $('.projects-wrapper .col.left').css('transform', `translateY(${200 * progressPercentage}px)`)
-        $('.projects-wrapper .col.right').css('transform', `translateY(-${500 * progressPercentage}px)`)
+        let scrollDistance = $('.content-body')[0].scrollTop;
+        let progressPercentage = (scrollDistance/ $('.content-body').height()) * 100;
+        //let scrollDistance = $('.content-body').position().top;
+        //let progressPercentage = scrollDistance / ($('.projects-wrapper').position().top + $('.projects-wrapper').height() )
+        console.log(progressPercentage)
+        $('.projects-wrapper .col.left').css('transform', `translateY(${0.6 * progressPercentage}px)`)
+        $('.projects-wrapper .col.right').css('transform', `translateY(-${1.3 * progressPercentage}px)`)
     })
 }
 
