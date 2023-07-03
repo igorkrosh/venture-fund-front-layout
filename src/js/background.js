@@ -262,7 +262,7 @@ function HandlerResize()
 
 function SceneHoverEffect()
 {
-    $('section.screen.main').on("mousemove", function (e) {
+    $(window).on("mousemove", function (e) {
         let scale = 0.15;
         _scene.rotation.y = (e.clientX - (window.innerWidth / 2)) / window.innerWidth * scale;
         _scene.rotation.x = (e.clientY - (window.innerHeight / 2)) / window.innerHeight * scale;
