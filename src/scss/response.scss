@@ -4,6 +4,38 @@
     {
         max-width: 1024px;
     }
+
+    .content-body .reviews .tab .video-grid
+    {
+        grid-template-columns: repeat(2, 49%);
+        grid-auto-rows: 300px;
+    }
+
+    .navbar .menu-wrapper
+    {
+        display: none;
+    }
+
+    .navbar
+    {
+        .btn
+        {
+            margin-left: auto;
+        }
+    }
+
+    .btn__menu
+    {
+        display: block;
+        background: black;
+        margin-left: 20px;
+        border-radius: 10px;
+    }
+
+    .btn__menu::after, .btn__menu span, .btn__menu:before
+    {
+        background: white;
+    }
 }
 
 @media(max-width: 1024px)
@@ -12,6 +44,29 @@
     {
         max-width: 992px;
     }
+
+    .screen.main .first-text
+    {
+        width: 100%;
+
+        h1
+        {
+            font-size: 40px;
+        }
+    }
+
+
+
+    .content-body .about-us .container .big-text
+    {
+        padding-right: 0;
+    }
+
+    .content-body .about-us .container .text
+    {
+        padding-left: 40px;
+    }
+
 }
 
 @media(max-width: 992px)
@@ -19,6 +74,16 @@
     .container
     {
         max-width: 768px;
+    }
+
+    .screen.main .scroll
+    {
+        display: none;
+    }
+
+    .screen.main .second-text
+    {
+        width: 100%;
     }
 }
 
@@ -28,6 +93,124 @@
     {
         max-width: 576px;
     }
+
+    .navbar
+    {
+        .btn
+        {
+            display: none;
+        }
+
+        .btn__menu
+        {
+            margin-left: auto;
+        }
+    }
+
+    .content-body .about-us
+    {
+        padding-top: 90px;
+    }
+
+    .content-body .about-us .container .big-text
+    {
+        width: 100%;
+    }
+
+    .content-body .about-us .container .text
+    {
+        padding-left: 0;
+        width: 100%;
+    }
+
+    .content-body .title
+    {
+        font-size: 40px;
+    }
+
+    .content-body .our-projects .projects-wrapper .col
+    {
+        width: 100%;
+    }
+
+    .content-body .our-projects .projects-wrapper .col.left, .content-body .our-projects .projects-wrapper .col.right
+    {
+        padding: 0;
+        transform: translateY(0);
+    }
+
+    .content-body .reviews .btn-wrapper
+    {
+        overflow: auto;
+        display: block;
+    }
+
+    .content-body .reviews .btn-wrapper .wrapper
+    {
+        width: max-content;
+    }
+
+    .content-body .reviews .tab .people-carousel .item
+    {
+        flex-direction: column;
+        padding-bottom: 40px;
+    }
+
+    .content-body .reviews .tab .people-carousel .item .image
+    {
+        width: 100%;
+    }
+
+    .content-body .reviews .tab .people-carousel .item .text
+    {
+        width: 100%;
+        padding: 0;
+        margin-top: 20px;
+    }
+
+    .content-body .reviews .tab .owl-navs
+    {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .content-body .reviews .tab .carousel-wrapper
+    {
+        padding-bottom: 40px;
+
+    }
+
+    .content-body .reviews .tab .video-grid
+    {
+        grid-template-columns: 100%;
+        margin-bottom: 0;
+    }
+
+    .content-body .faq .av
+    {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+    }
+
+    .content-body .faq .faq-wrapper
+    {
+        flex-direction: column;
+    }
+
+    .content-body .faq .faq-wrapper .dropdown-wrapper
+    {
+        width: 100%;
+    }
+
+    footer .container .wrapper
+    {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+
 }
 
 @media(max-width: 576px)

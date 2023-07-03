@@ -33,6 +33,8 @@ let modelMiniV = {
     model: {}
 }
 
+let ancore = '';
+
 $(document).ready(Core);
 
 function Core()
@@ -47,6 +49,8 @@ function Core()
     SceneScrollEffect();
     ProjectScrollEffect();
     SetDropdown();
+    SetMobileMenu();
+    SetAncore();
 
     InitOwlCarousel();
     Marquee3k.init();
@@ -120,7 +124,7 @@ function Init()
         z: 0
     }, 2, _scene);
 
-    Animate()
+    Animate();
 }
 
 function InitMiniScene()
@@ -288,8 +292,11 @@ function SceneScrollEffect()
         modelA.model.position.x = -0.6 - 3 * val / 100;
         modelV.model.position.x = 0.6 + 3 * val / 100;
 
+        _scene.scale.x = 1 + progressPercentage / 100;
+        _scene.scale.y = 1 + progressPercentage / 100;
+        _scene.scale.z = 1 + progressPercentage / 100;
+
         let scale = progressPercentage < 50 ? 0 : (progressPercentage - 50) / 100;
-        console.log(progressPercentage);
 
         $('.content-body').css('transform', `scale(${scale > 1 ? 1 : scale}) rotate3d(0.05, 1, 0, ${90 - 90 * scale < 0 ? 0 : 90 - 90 * scale}deg)`);
 
@@ -304,6 +311,9 @@ function SceneScrollEffect()
             $('.content-body').removeClass('anchor');
             $('.screen.fake').removeClass('anchor')
         }
+
+
+
     })
 }
 
@@ -315,6 +325,9 @@ function WheelEffect(e)
 function ProjectScrollEffect()
 {
     $('.scrolleffect').on('scroll', function (e) {
+
+        if (window.innerWidth < 1200)
+            return;
         let scrollDistance = -$(this).find('.content-body')[0].getBoundingClientRect().top;
         let progressPercentage = scrollDistance / ($('.projects-wrapper').position().top + $('.projects-wrapper').height() )
 
@@ -342,6 +355,41 @@ function SetDropdown()
     })
 }
 
+function SetMobileMenu()
+{
+    $('.close-menu').on('click', function (e) {
+        $('.mobile-menu').removeClass('active')
+    })
+
+    $('.btn__menu').on('click', function (e) {
+        $('.mobile-menu').addClass('active')
+    })
+}
+
+function SetAncore()
+{
+    $('[ancore]').on('click', function (e) {
+        let selector = $(this).attr('ancore')
+
+        ancore = $(selector).position().top;
+
+        $('.scrolleffect')[0].scrollTo({
+            top: window.innerHeight * 2,
+            behavior: "smooth"
+        })
+
+        setTimeout(function () {
+            ancore = $(selector).position().top;
+
+            $('.content-body')[0].scrollTo({
+                top: ancore,
+                behavior: "smooth"
+            })
+        }, 500)
+
+        $('.mobile-menu').removeClass('active');
+    })
+}
 
 
 

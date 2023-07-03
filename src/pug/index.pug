@@ -4,8 +4,8 @@ include core/navbar
 mixin Project(image, title, subtitle, text)
     .project
         img(src=image)
+        .project-title= title
         .desc
-            .project-title= title
             .project-subtitle= subtitle
             .text= text
 
@@ -23,6 +23,7 @@ html(lang="ru")
                 section.screen.main
                     header
                         +Navbar()
+                        +MobileMenu()
                     .container.container-text
                         .first-text
                             h1 Получайте <b>доход</b> до <b>50% уже сейчас!</b>
@@ -75,12 +76,12 @@ html(lang="ru")
                             h2.title Наши проекты
                         .projects-wrapper
                             .col.left
-                                +Project('/assets/images/projects/1.jpg', 'Название проекта', '', '')
-                                +Project('/assets/images/projects/3.jpg', 'Название проекта', '', '')
-
+                                +Project('/assets/images/projects/1.jpg', 'Название проекта', 'Доходность: 40% \\ 7 мес. Минимальный депозит: 60 000 р.', 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. ')
+                                +Project('/assets/images/projects/3.jpg', 'Название проекта', 'Доходность: 40% \\ 7 мес. Минимальный депозит: 60 000 р.', 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. ')
                             .col.right
                                 +Project('/assets/images/projects/2.jpg', 'Название проекта', 'Доходность: 40% \\ 7 мес. Минимальный депозит: 60 000 р.', 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. ')
-                                +Project('/assets/images/projects/4.jpg', 'Название проекта', '', '')
+                                +Project('/assets/images/projects/4.jpg', 'Название проекта', 'Доходность: 40% \\ 7 мес. Минимальный депозит: 60 000 р.', 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. ')
+
                     .reviews
                         .container
                             h2.title Инвесторы делятся успехом
