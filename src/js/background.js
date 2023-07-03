@@ -303,7 +303,7 @@ function SceneScrollEffect()
 
         let scale = progressPercentage / 100;
 
-        $('.content-body').css('transform', `scale(${scale > 1 ? 1 : scale}) rotate3d(0.05, 1, 0, ${90 - 90 * scale < 0 ? 0 : 90 - 90 * scale}deg)`);
+        $('.content-body').css('transform', `scale(${scale > 1 ? 1 : scale}) rotateY(${90 - 90 * scale < 0 ? 0 : 90 - 90 * scale}deg)`);
 
         if (scale >= 1)
         {
