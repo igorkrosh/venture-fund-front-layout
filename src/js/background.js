@@ -308,13 +308,14 @@ function SceneScrollEffect()
         if (scale >= 1)
         {
             $('.content-body').addClass('anchor');
-            $('.screen.main').css('transform', ``)
+            $('.screen.main').addClass('scroll-block')
             $('.screen.fake').addClass('anchor')
         }
         else
         {
             $('.content-body').removeClass('anchor');
             $('.screen.fake').removeClass('anchor')
+            $('.screen.main').removeClass('scroll-block')
         }
 
 
@@ -337,7 +338,6 @@ function ProjectScrollEffect()
         let progressPercentage = (scrollDistance/ $('.content-body').height()) * 100;
         //let scrollDistance = $('.content-body').position().top;
         //let progressPercentage = scrollDistance / ($('.projects-wrapper').position().top + $('.projects-wrapper').height() )
-        console.log(progressPercentage)
         $('.projects-wrapper .col.left').css('transform', `translateY(${0.6 * progressPercentage}px)`)
         $('.projects-wrapper .col.right').css('transform', `translateY(-${1.3 * progressPercentage}px)`)
     })

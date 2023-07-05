@@ -85,6 +85,14 @@ body
     bottom: 0;
 }
 
+.scroll-block
+{
+    pointer-events: none;
+    overflow: hidden;
+    touch-action: none;
+    -ms-touch-action: none;
+}
+
 .screen.main
 {
     padding: 120px 0 80px 0;
@@ -191,7 +199,7 @@ body
 {
     position: relative;
     transform: none;
-
+    touch-action: cross-slide-y;
     overflow-x: hidden;
     width: initial;
     #height: initial;
