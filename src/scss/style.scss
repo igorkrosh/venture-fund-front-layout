@@ -58,6 +58,7 @@ body
             a
             {
                 margin-right: 30px;
+                pointer-events: all;
             }
         }
     }
@@ -782,6 +783,8 @@ footer
     padding: 45px;
     background: rgba(0, 0, 0, 0.8);
     transition: 0.3s;
+    pointer-events: all;
+    z-index: 100;
 
     .btn
     {
@@ -794,13 +797,14 @@ footer
         align-items: flex-start;
         justify-content: center;
         color: white;
-        font-size: 30px;
+        font-size: 26px;
         margin-top: auto;
         margin-bottom: auto;
 
         a
         {
             margin-bottom: 20px;
+            word-break: break-word;
         }
 
         .btn

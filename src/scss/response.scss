@@ -30,6 +30,7 @@
         background: black;
         margin-left: 20px;
         border-radius: 10px;
+        pointer-events: all;
     }
 
     .btn__menu::after, .btn__menu span, .btn__menu:before
