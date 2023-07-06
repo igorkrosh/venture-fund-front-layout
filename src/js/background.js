@@ -310,12 +310,15 @@ function SceneScrollEffect()
             $('.content-body').addClass('anchor');
             $('.screen.main').addClass('scroll-block')
             $('.screen.fake').addClass('anchor')
+            $('.content-body')[0].scrollBy(0,0)
+            $('.content-body')[0].focus();
         }
         else
         {
             $('.content-body').removeClass('anchor');
             $('.screen.fake').removeClass('anchor')
             $('.screen.main').removeClass('scroll-block')
+            $('.screen.main')[0].focus();
         }
 
 
