@@ -208,8 +208,8 @@ body
     position: relative;
     transform: none;
     //touch-action: cross-slide-y;
-    //overflow-x: hidden;
-    overflow: initial;
+    overflow-x: hidden;
+    overflow-y: initial;
     width: initial;
     #height: initial;
     height: auto;
