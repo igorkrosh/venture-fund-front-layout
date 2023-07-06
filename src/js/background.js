@@ -378,16 +378,16 @@ function WheelEffect(e)
 
 function ProjectScrollEffect()
 {
-    $('.content-body').on('scroll', function (e) {
+    $('.scrolleffect').on('scroll', function (e) {
 
         if (window.innerWidth < 1200)
             return;
-        let scrollDistance = $('.content-body')[0].scrollTop;
-        let progressPercentage = (scrollDistance/ $('.content-body').height()) * 100;
+        let scrollDistance = $('.scrolleffect')[0].scrollTop;
+        let progressPercentage = (scrollDistance/ $('.scrolleffect').height()) * 100;
         //let scrollDistance = $('.content-body').position().top;
         //let progressPercentage = scrollDistance / ($('.projects-wrapper').position().top + $('.projects-wrapper').height() )
-        $('.projects-wrapper .col.left').css('transform', `translateY(${0.6 * progressPercentage}px)`)
-        $('.projects-wrapper .col.right').css('transform', `translateY(-${1.3 * progressPercentage}px)`)
+        $('.projects-wrapper .col.left').css('transform', `translateY(${-0.1 * progressPercentage}px)`)
+        $('.projects-wrapper .col.right').css('transform', `translateY(-${0.9 * progressPercentage}px)`)
     })
 }
 
