@@ -584,10 +584,15 @@ body
 
                 .dots
                 {
+                    /*
                     display: flex;
                     align-items: center;
                     flex-wrap: wrap;
                     justify-content: center;
+
+                     */
+                    display: block;
+                    text-align: center;
                     width: 100%;
 
                     button
