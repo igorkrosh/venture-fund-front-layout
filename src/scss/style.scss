@@ -566,15 +566,21 @@ body
 
             .owl-navs
             {
+                /*
                 display: flex;
                 align-items: center;
-                position: absolute;
+
+                justify-content: center;
+                flex-wrap: wrap;
+                */
+                 display: block;
+                text-align: center;
                 padding: 0 45px;
                 z-index: 5;
-                justify-content: center;
+                position: absolute;
                 left: calc(55% + 45px);
                 bottom: 5px;
-                flex-wrap: wrap;
+
 
                 .dots
                 {
