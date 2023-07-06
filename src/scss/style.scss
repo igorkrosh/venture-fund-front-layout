@@ -193,11 +193,11 @@ body
     scrollbar-width: none;
     scroll-behavior: smooth;
 }
-
+/*
 .scrolleffect::-webkit-scrollbar {
     display: none;
 }
-
+*/
 
 .content-body::-webkit-scrollbar {
     display: none;
@@ -207,12 +207,12 @@ body
 {
     position: relative;
     transform: none;
-    touch-action: cross-slide-y;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    //touch-action: cross-slide-y;
+    //overflow-x: hidden;
+    overflow: initial;
     width: initial;
     #height: initial;
-    min-height: 100vh;
+    height: auto;
     left: initial;
     top: initial;
     pointer-events: all;
