@@ -43,6 +43,7 @@ function Core()
     InitMiniScene();
 
     Animate();
+    //ScrollAnimate()
 
     HandlerResize();
     SceneHoverEffect();
@@ -54,7 +55,10 @@ function Core()
 
     InitOwlCarousel();
     Marquee3k.init();
+
 }
+
+
 
 function Init()
 {
@@ -223,15 +227,58 @@ function LoadModels(model, position = {x: 0, y: 0, z: 0}, scale = 1, scene)
 function Animate()
 {
     requestAnimationFrame( Animate );
-
     _renderer.render( _scene, _camera );
 }
 
 function AnimateMini()
 {
     requestAnimationFrame( AnimateMini );
-
     _rendererMini.render( _sceneMini, _cameraMini );
+}
+
+function ScrollAnimate()
+{
+    requestAnimationFrame( ScrollAnimate );
+
+    let scrollDistance = $('.scrolleffect')[0].scrollTop;
+    let progressPercentage = (scrollDistance/ $('.scrolleffect').height()) * 100;
+
+    console.log(progressPercentage)
+
+    if (progressPercentage < 150)
+    {
+        $('.screen.main').css('transform', `translate3d(0px, ${scrollDistance}px, 0px)`)
+    }
+
+    progressPercentage = Math.floor(progressPercentage);
+    let val = progressPercentage > 100 ? 100: progressPercentage;
+
+    modelA.model.position.x = -0.6 - 3 * val / 100;
+    modelV.model.position.x = 0.6 + 3 * val / 100;
+
+    _scene.scale.x = 1 + progressPercentage / 100;
+    _scene.scale.y = 1 + progressPercentage / 100;
+    _scene.scale.z = 1 + progressPercentage / 100;
+
+    let scale = progressPercentage / 100;
+
+    //$('.content-body').css('transform', `scale(${scale > 1 ? 1 : scale})`);
+
+    if (scale >= 1)
+    {
+        $('.content-body').addClass('anchor');
+        $('.screen.main').addClass('scroll-block')
+        $('.screen.fake').addClass('anchor')
+        $('.content-body')[0].scrollBy(0,0)
+        $('.content-body')[0].focus();
+    }
+    else
+    {
+        $('.content-body').removeClass('anchor');
+        $('.screen.fake').removeClass('anchor')
+        $('.screen.main').removeClass('scroll-block')
+        $('.screen.main')[0].focus();
+    }
 }
 
 
@@ -281,6 +328,7 @@ function SceneScrollEffect()
         //let scrollDistance = -$(this).find('.scroll-content')[0].getBoundingClientRect().top;
         //let progressPercentage = (scrollDistance/ (window.innerHeight * 2 - document.documentElement.clientHeight)) * 100;
 
+        e.stopPropagation();
         let scrollDistance = $('.scrolleffect')[0].scrollTop;
         let progressPercentage = (scrollDistance/ $('.scrolleffect').height()) * 100;
 
@@ -288,7 +336,7 @@ function SceneScrollEffect()
 
         if (progressPercentage < 150)
         {
-            //$('.screen.main').css('transform', `translateY(${scrollDistance}px)`)
+            //$('.screen.main').css('transform', `translate(0px, ${scrollDistance}px)`)
         }
 
         progressPercentage = Math.floor(progressPercentage);
@@ -320,9 +368,6 @@ function SceneScrollEffect()
             $('.screen.main').removeClass('scroll-block')
             $('.screen.main')[0].focus();
         }
-
-
-
     })
 }
 
