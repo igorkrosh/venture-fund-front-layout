@@ -387,7 +387,7 @@ function ProjectScrollEffect()
         //let scrollDistance = $('.content-body').position().top;
         //let progressPercentage = scrollDistance / ($('.projects-wrapper').position().top + $('.projects-wrapper').height() )
         $('.projects-wrapper .col.left').css('transform', `translateY(${-0.1 * progressPercentage}px)`)
-        $('.projects-wrapper .col.right').css('transform', `translateY(-${0.9 * progressPercentage}px)`)
+        $('.projects-wrapper .col.right').css('transform', `translateY(-${1.1 * progressPercentage}px)`)
     })
 }
 

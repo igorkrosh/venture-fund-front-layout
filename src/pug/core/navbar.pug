@@ -28,7 +28,7 @@ mixin Navbar(black)
             .menu-wrapper
                 each item in menu
                     a(href="#" ancore=item.selector)= item.title
-            a.btn(href="") Регистрация
+            a.btn(href="") Войти
             +BtnMenu()
 
 mixin MobileMenu()
@@ -37,4 +37,4 @@ mixin MobileMenu()
         .menu-wrapper
             each item in menu
                 a(href="#" ancore=item.selector)= item.title
-            a.btn(href="") Регистрация
+            a.btn(href="") Войти

@@ -99,12 +99,14 @@
     {
         .btn
         {
-            display: none;
+            font-size: 14px;
+            padding: 3px 10px;
+            margin-left: auto;
         }
 
         .btn__menu
         {
-            margin-left: auto;
+            margin-left: 5px;
         }
     }
 
@@ -219,5 +221,25 @@
     .container
     {
         max-width: 100%;
+    }
+
+    .navbar
+    {
+        padding: 20px 0;
+    }
+
+    .screen.main
+    {
+        padding: 80px 0 40px 0;
+    }
+
+    .screen.main .first-text h1
+    {
+        font-size: 32px;
+    }
+
+    .screen.main .first-text .btn
+    {
+        display: none;
     }
 }
