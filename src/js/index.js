@@ -426,8 +426,8 @@ function SetAncore()
 {
     $('[ancore]').on('click', function (e) {
         $('.scrolleffect')[0].scrollTo({
-            top: window.innerHeight,
-            behavior: "smooth"
+            top: $('.scrolleffect').height(),
+            behavior: "auto"
         })
 
         onAncore = true;
@@ -441,7 +441,7 @@ function SetAncore()
             return;
         $('.scrolleffect')[0].scrollTo({
             top: window.innerHeight + $(selector).position().top,
-            behavior: "smooth"
+            behavior: "auto"
         })
 
         onAncore = false;
