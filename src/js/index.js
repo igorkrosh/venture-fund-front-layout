@@ -361,6 +361,16 @@ function SceneScrollEffect()
             $('.screen.fake').addClass('anchor')
             $('.content-body')[0].scrollBy(0,0)
             $('.content-body')[0].focus();
+
+            if (!onAncore)
+                return;
+
+            $('.scrolleffect')[0].scrollTo({
+                top: window.innerHeight + $(selector).position().top,
+                behavior: "auto"
+            })
+
+            onAncore = false;
         }
         else
         {
@@ -434,17 +444,6 @@ function SetAncore()
         selector = $(this).attr('ancore');
 
         $('.mobile-menu').removeClass('active');
-    })
-
-    $('.scrolleffect').on('scrollend', function () {
-        if (!onAncore)
-            return;
-        $('.scrolleffect')[0].scrollTo({
-            top: window.innerHeight + $(selector).position().top,
-            behavior: "auto"
-        })
-
-        onAncore = false;
     })
 }
 
