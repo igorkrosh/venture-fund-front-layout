@@ -13,6 +13,9 @@ let sceneWrapperNode;
 let sceneMiniWrapperId = 'av-mini'
 let sceneMiniWrapperNode;
 
+let onAncore = false;
+let selector = 0;
+
 let modelA = {
     path: '/assets/models/A.glb',
     model: {},
@@ -32,8 +35,6 @@ let modelMiniV = {
     path: '/assets/models/V.glb',
     model: {}
 }
-
-let ancore = '';
 
 $(document).ready(Core);
 
@@ -424,25 +425,26 @@ function SetMobileMenu()
 function SetAncore()
 {
     $('[ancore]').on('click', function (e) {
-        let selector = $(this).attr('ancore')
-
-        ancore = $(selector).position().top;
-
         $('.scrolleffect')[0].scrollTo({
             top: window.innerHeight,
             behavior: "smooth"
         })
 
-        setTimeout(function () {
-            ancore = $(selector).position().top;
-
-            $('.scrolleffect')[0].scrollTo({
-                top: window.innerHeight + ancore,
-                behavior: "smooth"
-            })
-        }, 500)
+        onAncore = true;
+        selector = $(this).attr('ancore');
 
         $('.mobile-menu').removeClass('active');
+    })
+
+    $('.scrolleffect').on('scrollend', function () {
+        if (!onAncore)
+            return;
+        $('.scrolleffect')[0].scrollTo({
+            top: window.innerHeight + $(selector).position().top,
+            behavior: "smooth"
+        })
+
+        onAncore = false;
     })
 }
 
