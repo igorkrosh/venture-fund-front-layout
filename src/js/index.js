@@ -333,8 +333,6 @@ function SceneScrollEffect()
         let scrollDistance = $('.scrolleffect')[0].scrollTop;
         let progressPercentage = (scrollDistance/ $('.scrolleffect').height()) * 100;
 
-        console.log(progressPercentage)
-
         if (progressPercentage < 150)
         {
             //$('.screen.main').css('transform', `translate(0px, ${scrollDistance}px)`)
@@ -404,14 +402,21 @@ function ProjectScrollEffect()
 
 function InitOwlCarousel()
 {
-    $('.people-carousel.owl-carousel').owlCarousel({
-        items: 1,
-        navs: true,
-        navContainer: $('.carousel-wrapper .owl-navs .navs'),
-        dots: true,
-        dotsContainer: $('.carousel-wrapper .owl-navs .dots'),
-        autoHeight: true
-    })
+    let projectsCarousel = $('.people-carousel.owl-carousel');
+
+    for (let item of projectsCarousel)
+    {
+        $(item).owlCarousel({
+            items: 1,
+            navs: true,
+            navContainer: $(item).parent().find('.owl-navs .navs'),
+            dots: true,
+            dotsContainer: $(item).parent().find('.owl-navs .dots'),
+            autoHeight: true
+        })
+    }
+
+
 }
 
 function SetDropdown()
